@@ -30,6 +30,18 @@ RUN cd toxcore && make install
 
 # PyTox
 RUN git clone https://github.com/aitjcize/PyTox.git PyTox
-RUN sudo apt-get install -y python-dev
+RUN apt-get install -y python-dev
 RUN cd PyTox && pip install .
+
+### Serve the Toxin front end
+RUN sudo apt-get install -y apache2
+
+### Supervisor
+RUN apt-get install -y supervisor
+
+ADD etc /etc
+
+CMD ["/usr/bin/supervisord"]
+
+EXPOSE 80
 
