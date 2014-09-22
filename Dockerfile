@@ -34,7 +34,10 @@ RUN apt-get install -y python-dev
 RUN cd PyTox && pip install .
 
 ### Serve the Toxin front end
-RUN sudo apt-get install -y apache2
+RUN apt-get install -y apache2 nodejs nodejs-legacy npm
+RUN npm install -g bower
+ADD toxin-client /srv/app
+RUN cd /srv/app && yes | bower install --allow-root
 
 ### Supervisor
 RUN apt-get install -y supervisor
