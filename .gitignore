@@ -6,6 +6,9 @@ env
 *.egg
 *.egg-info
 .tox
+AUTHORS
+dist
+ChangeLog
 
 # pycharm
 .idea
