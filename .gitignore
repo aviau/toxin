@@ -1,2 +1,11 @@
+# python stuff
 env
+*.pyc
+
+# tox
+*.egg
+*.egg-info
 .tox
+
+# pycharm
+.idea
