@@ -8,6 +8,4 @@ class HelloWsmeController(restful.Resource):
 
     @signature(helloMessage.helloMessage)
     def get():
-        message = helloMessage.helloMessage()
-        message.message = "HeeeeYYYY"
-        return message
+        return helloMessage.helloMessage(message="HeeeeYYY")
