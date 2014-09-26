@@ -4,6 +4,7 @@ from flask.ext import restful
 app = Flask(__name__)
 api = restful.Api(app)
 
+
 class HelloWorld(restful.Resource):
     def get(self):
         return {'hello': 'world'}
