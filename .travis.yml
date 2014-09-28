@@ -4,11 +4,14 @@ env:
     - TOX_ENV=py27
     - TOX_ENV=py33
     - TOX_ENV=pep8
-    - TOX_ENV=coveralls
+    - TOX_ENV=coverage
 install:
     - sudo pip install tox
+    - sudo pip install coveralls
 script:
     - tox -e $TOX_ENV
 notifications:
     email: false
     irc: "chat.freenode.net#toxin"
+after_succes:
+    coveralls
