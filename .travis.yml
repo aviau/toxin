@@ -8,3 +8,6 @@ install:
     - sudo pip install tox
 script:
     - tox -e $TOX_ENV
+notifications:
+    email: false
+    irc: "chat.freenode.net#toxin"
