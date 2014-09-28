@@ -25,6 +25,6 @@ from toxin.api.types import helloMessage
 
 class HelloWsmeController(restful.Resource):
 
-    @signature(helloMessage.helloMessage)
+    @signature(helloMessage.HelloMessage)
     def get():
-        return helloMessage.helloMessage(message="HeeeeYYY")
+        return helloMessage.HelloMessage(message="HeeeeYYY")

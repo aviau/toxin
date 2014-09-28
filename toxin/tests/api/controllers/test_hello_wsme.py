@@ -17,17 +17,15 @@
 #    along with Toxin.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-from toxin.api.types import base
-import wsme
-import wsme.types as wtypes
+from toxin.tests.api import functionalTest
+import json
 
 
-class HelloMessage(base.Base):
-    message = wsme.wsattr(wtypes.text, mandatory=True)
-    """This is the actual message"""
+class TestHelloWsmeController(functionalTest.FunctionalTest):
 
-    @classmethod
-    def sample(cls):
-        return cls(
-            message="Hello guys!",
+    def test_hello(self):
+        response = self.app.get('/hello')
+        self.assertEqual(
+            json.loads(response.data.decode()),
+            {u'hello': u'world'}
         )
