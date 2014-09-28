@@ -1,0 +1,14 @@
+# =========================================================================
+# COVERAGE CONFIGURATION FILE: .coveragerc
+# =========================================================================
+# LANGUAGE: Python
+# SEE ALSO:
+#  * http://nedbatchelder.com/code/coverage/
+#  * http://nedbatchelder.com/code/coverage/config.html
+# =========================================================================
+
+[run]
+append  = .coverage
+include = toxin*
+branch  = True
+parallel = True

@@ -11,5 +11,9 @@ dist
 ChangeLog
 doc/build
 
+# coverage
+.coverage*
+cover
+
 # pycharm
 .idea
