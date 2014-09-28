@@ -4,6 +4,7 @@ env:
     - TOX_ENV=py27
     - TOX_ENV=py33
     - TOX_ENV=pep8
+    - TOX_ENV=coveralls
 install:
     - sudo pip install tox
 script:
