@@ -23,7 +23,7 @@ import json
 
 class TestHelloController(functionalTest.FunctionalTest):
 
-    def test_empty_db(self):
+    def test_hello(self):
         response = self.app.get('/hello')
         self.assertEqual(
             json.loads(response.data.decode()),
