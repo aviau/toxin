@@ -9,6 +9,7 @@ env
 AUTHORS
 dist
 ChangeLog
+doc/build
 
 # pycharm
 .idea
