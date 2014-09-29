@@ -9,10 +9,18 @@ env:
 install:
     - sudo pip install tox
     - sudo pip install coveralls
+before_script:
+  # That is for testing the angular app 
+  - if [ "$TEST_ANGULAR" == "YES" ] ; then  export DISPLAY=:99.0 ; fi
+  - if [ "$TEST_ANGULAR" == "YES" ] ; then  sh -e /etc/init.d/xvfb start ; fi
+  - if [ "$TEST_ANGULAR" == "YES" ] ; then  cd toxin-client && npm start > /dev/null & ; fi
+  - if [ "$TEST_ANGULAR" == "YES" ] ; then  cd toxin-client && npm run update-webdriver ; fi
+  - if [ "$TEST_ANGULAR" == "YES" ] ; then  sleep 1 ; fi # give server time to start
 script:
     - if [ "$TOX_ENV" != "" ] ; then tox -e $TOX_ENV; fi
     - if [ "$TOX_ENV" == "coverage" ] ; then coveralls; fi
-    - if [ "$TEST_ANGULAR" == "YES" ] ; then cd toxin-client && npm test; fi
+    - if [ "$TEST_ANGULAR" == "YES" ] ; then cd toxin-client && npm node_modules/.bin/karma start karma.conf.js --no-auto-watch --single-run --reporters=dots --browsers=Firefox ; fi
+    - if [ "$TEST_ANGULAR" == "YES" ] ; then cd toxin-client && node_modules/.bin/protractor e2e-tests/protractor.conf.js --browser=firefox ; fi
 notifications:
     email: false
     irc: "chat.freenode.net#toxin"
