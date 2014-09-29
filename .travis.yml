@@ -12,6 +12,7 @@ install:
 script:
     - if [ "$TOX_ENV" != "" ] ; then tox -e $TOX_ENV; fi
     - if [ "$TOX_ENV" == "coverage" ] ; then coveralls; fi
+    - if [ "$TEST_ANGULAR" == "ELLO" ] ; then cd toxin-client && npm test; fi
 notifications:
     email: false
     irc: "chat.freenode.net#toxin"
