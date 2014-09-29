@@ -10,8 +10,7 @@ install:
     - sudo pip install coveralls
 script:
     - tox -e $TOX_ENV
+    - if [ "$TOX_ENV" == "coverage" ] ; then coveralls; fi
 notifications:
     email: false
     irc: "chat.freenode.net#toxin"
-after_succes:
-    coveralls
