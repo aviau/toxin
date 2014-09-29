@@ -5,14 +5,14 @@ env:
     - TOX_ENV=py33
     - TOX_ENV=pep8
     - TOX_ENV=coverage
-    - TEST_ANGULAR=ELLOOO
+    - TEST_ANGULAR=YES
 install:
     - sudo pip install tox
     - sudo pip install coveralls
 script:
     - if [ "$TOX_ENV" != "" ] ; then tox -e $TOX_ENV; fi
     - if [ "$TOX_ENV" == "coverage" ] ; then coveralls; fi
-    - if [ "$TEST_ANGULAR" == "ELLO" ] ; then cd toxin-client && npm test; fi
+    - if [ "$TEST_ANGULAR" == "YES" ] ; then cd toxin-client && npm test; fi
 notifications:
     email: false
     irc: "chat.freenode.net#toxin"
