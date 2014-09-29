@@ -10,7 +10,7 @@ install:
     - sudo pip install tox
     - sudo pip install coveralls
 script:
-    - if [ "TOX_ENV" != "" ] ; then tox -e $TOX_ENV; fi
+    - if [ "$TOX_ENV" != "" ] ; then tox -e $TOX_ENV; fi
     - if [ "$TOX_ENV" == "coverage" ] ; then coveralls; fi
 notifications:
     email: false
