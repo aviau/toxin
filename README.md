@@ -4,4 +4,4 @@ Toxin a is WebUI for Tox. It's going to be a HipChat alternative - but decentral
 
 - [**Website**](http://toxin.io)
 - [**Documentation**](http://docs.toxin.io)
-- **IRC:** toxin@freenode
+- **IRC:** toxin@freenode ([qwebirc](http://webchat.freenode.net?channels=%23toxin))
