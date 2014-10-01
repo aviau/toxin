@@ -27,7 +27,7 @@ app = Flask(__name__)
 api = restful.Api(app)
 
 api.add_resource(hello.HelloController, '/hello')
-app.register_blueprint(hello_wsme.hello_wsme)
+app.register_blueprint(hello_wsme.hello_wsme, url_prefix='/hellowsme')
 
 if __name__ == '__main__':
     app.run(debug=True)

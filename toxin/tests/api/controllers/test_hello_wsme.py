@@ -19,14 +19,15 @@
 
 import json
 
+from toxin.api.types import helloMessage
 from toxin.tests.api import functionalTest
 
 
-class TestHelloWsmeController(functionalTest.FunctionalTest):
+class TestHelloController(functionalTest.FunctionalTest):
 
     def test_hello(self):
-        response = self.app.get('/hello')
+        response = self.app.get('/hellowsme')
         self.assertEqual(
             json.loads(response.data.decode()),
-            {u'hello': u'world'}
+            helloMessage.HelloMessage(message='HeeeeYYY').as_dict()
         )

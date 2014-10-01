@@ -28,7 +28,7 @@ hello_wsme = flask.Blueprint(
 )
 
 
-@hello_wsme.route('/hellowsme')
+@hello_wsme.route('')
 @signature(helloMessage.HelloMessage)
 def get():
     return helloMessage.HelloMessage(message="HeeeeYYY")
