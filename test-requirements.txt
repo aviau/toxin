@@ -1,5 +1,7 @@
-flake8
 nose
 sphinx>=1.2.3
 sphinx_rtd_theme
 coverage
+
+flake8
+flake8-import-order
