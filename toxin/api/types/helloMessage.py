@@ -18,6 +18,7 @@
 #
 
 from toxin.api.types import base
+
 import wsme
 import wsme.types as wtypes
 

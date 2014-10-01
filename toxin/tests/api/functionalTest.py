@@ -17,8 +17,9 @@
 #    along with Toxin.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-from toxin.api import app
 import unittest
+
+from toxin.api import app
 
 
 class FunctionalTest(unittest.TestCase):

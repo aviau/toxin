@@ -18,9 +18,10 @@
 #
 
 from flask.ext import restful
-from wsmeext.flask import signature
 
 from toxin.api.types import helloMessage
+
+from wsmeext.flask import signature
 
 
 class HelloWsmeController(restful.Resource):

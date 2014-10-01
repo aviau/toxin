@@ -17,10 +17,10 @@
 #    along with Toxin.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-from toxin.tests.api import functionalTest
-from toxin.api.types import helloMessage
-
 import json
+
+from toxin.api.types import helloMessage
+from toxin.tests.api import functionalTest
 
 
 class TestHelloController(functionalTest.FunctionalTest):

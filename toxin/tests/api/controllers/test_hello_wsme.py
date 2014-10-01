@@ -17,8 +17,9 @@
 #    along with Toxin.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-from toxin.tests.api import functionalTest
 import json
+
+from toxin.tests.api import functionalTest
 
 
 class TestHelloWsmeController(functionalTest.FunctionalTest):
