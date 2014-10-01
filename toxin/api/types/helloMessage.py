@@ -17,10 +17,10 @@
 #    along with Toxin.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-from toxin.api.types import base
-
 import wsme
 import wsme.types as wtypes
+
+from toxin.api.types import base
 
 
 class HelloMessage(base.Base):
