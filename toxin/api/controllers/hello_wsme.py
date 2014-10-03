@@ -17,18 +17,14 @@
 #    along with Toxin.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-import flask
+from flask.ext import restful
+
 from wsmeext.flask import signature
 from toxin.api.types import helloMessage
 
 
-hello_wsme = flask.Blueprint(
-    'hellowsme',
-    __name__,
-)
+class HelloWsmeController(restful.Resource):
 
-
-@hello_wsme.route('')
-@signature(helloMessage.HelloMessage)
-def get():
-    return helloMessage.HelloMessage(message="HeeeeYYY")
+    @signature(helloMessage.HelloMessage)
+    def get(self):
+        return helloMessage.HelloMessage(message="HeeeeYYY")

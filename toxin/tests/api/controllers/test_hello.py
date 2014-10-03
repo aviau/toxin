@@ -22,7 +22,7 @@ import json
 from toxin.tests.api import functionalTest
 
 
-class TestHelloWsmeController(functionalTest.FunctionalTest):
+class TestHelloController(functionalTest.FunctionalTest):
 
     def test_hello(self):
         response = self.app.get('/hello')

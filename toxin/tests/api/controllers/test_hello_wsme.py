@@ -23,10 +23,16 @@ from toxin.api.types import helloMessage
 from toxin.tests.api import functionalTest
 
 
-class TestHelloController(functionalTest.FunctionalTest):
+class TestHelloWsmeController(functionalTest.FunctionalTest):
 
-    def test_hello(self):
-        response = self.app.get('/hellowsme')
+    def test_hello_wsme(self):
+        response = self.app.get(
+            '/hellowsme',
+            headers={'Accept': 'application/json'}
+        )
+
+        self.assertEqual(response.status_code, 200)
+
         self.assertEqual(
             json.loads(response.data.decode()),
             helloMessage.HelloMessage(message='HeeeeYYY').as_dict()
