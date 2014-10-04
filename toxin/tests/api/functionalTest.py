@@ -27,3 +27,15 @@ class FunctionalTest(unittest.TestCase):
     def setUp(self):
         app.app.config['TESTING'] = True
         self.app = app.app.test_client()
+
+    def post_json(self, path, **kwargs):
+
+        response = self.app.post(
+            path,
+            headers={
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'},
+            **kwargs
+        )
+
+        return response
