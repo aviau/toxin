@@ -49,5 +49,3 @@ class TestRegisterController(functionalTest.FunctionalTest):
         )
 
         self.assertEqual(response.status_code, 201)
-
-
