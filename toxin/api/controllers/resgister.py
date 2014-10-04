@@ -17,19 +17,19 @@
 #    along with Toxin.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-from flask import Flask
 from flask.ext import restful
 
-from toxin.api.controllers import hello
-from toxin.api.controllers import hello_wsme
-from toxin.api.controllers import resgister
+from wsmeext.flask import signature
+import wsme.api
+from toxin.api.types import registration
 
-app = Flask(__name__)
-api = restful.Api(app)
 
-api.add_resource(hello.HelloController, '/hello')
-api.add_resource(hello_wsme.HelloWsmeController, '/hellowsme')
-api.add_resource(resgister.RegisterController, '/register')
+class RegisterController(restful.Resource):
 
-if __name__ == '__main__':
-    app.run(debug=True)
+    @signature(registration.Registration)
+    def get(self):
+        return registration.Registration.sample()
+
+    @signature(body=registration.Registration, status_code=201)
+    def post(self, r):
+        return
