@@ -11,11 +11,7 @@ install:
     - sudo pip install coveralls
 before_script:
   # That is for testing the angular app 
-  - if [ "$TEST_ANGULAR" == "YES" ] ; then  export DISPLAY=:99.0 ; fi
-  - if [ "$TEST_ANGULAR" == "YES" ] ; then  sh -e /etc/init.d/xvfb start ; fi
-  - if [ "$TEST_ANGULAR" == "YES" ] ; then  cd toxin-client && npm start > /dev/null & ; fi
-  - if [ "$TEST_ANGULAR" == "YES" ] ; then  cd toxin-client && npm run update-webdriver ; fi
-  - if [ "$TEST_ANGULAR" == "YES" ] ; then  sleep 1 ; fi # give server time to start
+  - if [ "$TEST_ANGULAR" == "YES" ] ; then  sh toxin-client/travis-setup.sh ; fi
 script:
     - if [ "$TOX_ENV" != "" ] ; then tox -e $TOX_ENV; fi
     - if [ "$TOX_ENV" == "coverage" ] ; then coveralls; fi
