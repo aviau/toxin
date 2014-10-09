@@ -15,9 +15,7 @@ before_script:
 script:
     - if [ "$TOX_ENV" != "" ] ; then tox -e $TOX_ENV; fi
     - if [ "$TOX_ENV" == "coverage" ] ; then coveralls; fi
-    - if [ "$TEST_ANGULAR" == "YES" ] ; then cd toxin-client; fi 
-    - if [ "$TEST_ANGULAR" == "YES" ] ; then node_modules/.bin/karma start karma.conf.js --no-auto-watch --single-run --reporters=dots --browsers=Firefox ; fi
-    - if [ "$TEST_ANGULAR" == "YES" ] ; then node_modules/.bin/protractor e2e-tests/protractor.conf.js --browser=firefox ; fi
+    - if [ "$TEST_ANGULAR" == "YES" ] ; then cd toxin-client && sh travis-install.sh; fi
 notifications:
     email: false
     irc: "chat.freenode.net#toxin"
