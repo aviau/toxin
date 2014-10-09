@@ -3,3 +3,5 @@ sphinx>=1.2.3
 sphinx_rtd_theme
 coverage
 flake8
+mongomock>=2.0.0
+mock>=1.0.1

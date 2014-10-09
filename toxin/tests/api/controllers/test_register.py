@@ -49,3 +49,11 @@ class TestRegisterController(functionalTest.FunctionalTest):
         )
 
         self.assertEqual(response.status_code, 201)
+        self.assertEqual(
+            registration.Registration(
+                **self.db.toxin.registrations.find_one(
+                    {"username": "ReAzem"}
+                )
+            ).as_dict(),
+            regist.as_dict()
+        )

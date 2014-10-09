@@ -18,8 +18,10 @@
 #
 
 from flask.ext import restful
+from flask import g
 
 from wsmeext.flask import signature
+
 from toxin.api.types import registration
 
 
@@ -31,4 +33,7 @@ class RegisterController(restful.Resource):
 
     @signature(body=registration.Registration, status_code=201)
     def post(self, r):
+        g.db.toxin.registrations.insert(
+            r.as_dict()
+        )
         return

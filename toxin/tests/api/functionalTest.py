@@ -18,6 +18,8 @@
 #
 
 import unittest
+import mongomock
+import mock
 
 from toxin.api import app
 
@@ -26,6 +28,11 @@ class FunctionalTest(unittest.TestCase):
 
     def setUp(self):
         app.app.config['TESTING'] = True
+
+        # Mock the database
+        self.db = mongomock.Connection()
+        app.connect_db = mock.Mock(return_value=self.db)
+
         self.app = app.app.test_client()
 
     def post_json(self, path, **kwargs):
