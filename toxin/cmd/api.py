@@ -17,31 +17,8 @@
 #    along with Toxin.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-from flask import Flask
-from flask.ext import restful
-from flask import g
-
-import pymongo
-
-from toxin.api.controllers import hello
-from toxin.api.controllers import hello_wsme
-from toxin.api.controllers import resgister
-
-app = Flask(__name__)
-app.config.from_object('toxin.api.config')
-
-api = restful.Api(app)
-api.add_resource(hello.HelloController, '/hello')
-api.add_resource(hello_wsme.HelloWsmeController, '/hellowsme')
-api.add_resource(resgister.RegisterController, '/register')
+import toxin.api.app
 
 
-@app.before_request
-def before_request():
-    if not hasattr(g, 'db'):
-        g.db = connect_db()
-
-
-def connect_db():
-    db = pymongo.Connection(app.config['MONGODB_URI'])
-    return db
+def main():
+    toxin.api.app.app.run('0.0.0.0')
