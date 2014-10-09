@@ -39,6 +39,17 @@ RUN npm install -g bower
 ADD toxin-client /srv/app
 RUN cd /srv/app && yes | bower install --allow-root
 
+### Serve the Toxin API
+RUN apt-get install -y mongodb
+ADD toxin /toxin/toxin
+ADD setup.cfg /toxin/setup.cfg
+ADD requirements.txt toxin/requirements.txt
+ADD setup.py /toxin/setup.py
+ADD .git /toxin/.git
+ADD README.md toxin/README.md
+RUN cd toxin && pip install -r requirements.txt
+RUN cd toxin && python setup.py install
+
 ### Supervisor
 RUN apt-get install -y supervisor
 
@@ -47,4 +58,5 @@ ADD etc /etc
 CMD ["/usr/bin/supervisord"]
 
 EXPOSE 80
+EXPOSE 5000
 
