@@ -8,7 +8,7 @@ install:
 script:
     - if [ "$TOX_ENV" != "" ] ; then tox -e $TOX_ENV; fi
     - if [ "$TOX_ENV" == "coverage" ] ; then coveralls; fi
-    - if [ "$TEST_ANGULAR" == "YES" ] ; then cd toxin-client && sh travis-install.sh; fi
+    - if [ "$TEST_ANGULAR" == "YES" ] ; then cd toxin-client && sudo sh travis-install.sh; fi
 notifications:
     email: false
     irc: "chat.freenode.net#toxin"
