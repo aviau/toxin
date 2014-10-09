@@ -9,9 +9,6 @@ env:
 install:
     - sudo pip install tox
     - sudo pip install coveralls
-before_script:
-  # That is for testing the angular app 
-  - if [ "$TEST_ANGULAR" == "YES" ] ; then  sh toxin-client/travis-install.sh ; fi
 script:
     - if [ "$TOX_ENV" != "" ] ; then tox -e $TOX_ENV; fi
     - if [ "$TOX_ENV" == "coverage" ] ; then coveralls; fi
@@ -19,4 +16,3 @@ script:
 notifications:
     email: false
     irc: "chat.freenode.net#toxin"
- 
